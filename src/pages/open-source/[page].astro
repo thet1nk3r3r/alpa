@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Section from "../../components/Section.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { contributions } from "../../content/openSource";
+
+
+const ITEMS_PER_PAGE = 4;
+
+export function getStaticPaths() {
+  const ITEMS_PER_PAGE = 4;
+  const totalPages = Math.ceil(contributions.length / ITEMS_PER_PAGE);
+
+  const paths = [];
+
+  for (let i = 1; i <= totalPages; i++) {
+    paths.push({
+      params: { page: i.toString() }
+    });
+  }
+
+  return paths;
+}
+
+const currentPage = parseInt(Astro.params.page);
+const totalPages = Math.ceil(contributions.length / ITEMS_PER_PAGE);
+
+const start = (currentPage - 1) * ITEMS_PER_PAGE;
+const end = start + ITEMS_PER_PAGE;
+
+const paginatedItems = contributions.slice(start, end);
+---
+
+<BaseLayout>
+  <Fragment slot="title">Open Source</Fragment>
+
+  <Section title="Open Source Contributions">
+    {paginatedItems.map((item) => (
+      <ProjectCard
+        title={item.title}
+        description={item.description}
+        stack={item.stack}
+        date={item.date}
+        status={item.status}
+        link={item.link}
+      />
+    ))}
+    <div class="mt-12 flex gap-6 text-sm">
+      {currentPage > 1 && (
+        <a
+          href={`/open-source/${currentPage - 1}`}
+          class="underline hover:text-black dark:hover:text-white"
+        >
+          ← Previous
+        </a>
+      )}
+
+      {currentPage < totalPages && (
+        <a
+          href={`/open-source/${currentPage + 1}`}
+          class="underline hover:text-black dark:hover:text-white"
+        >
+          Next →
+        </a>
+      )}
+    </div>
+  </Section>
+</BaseLayout>

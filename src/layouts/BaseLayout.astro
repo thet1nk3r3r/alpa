@@ -1,0 +1,43 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title><slot name="title" /></title>
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+
+  <body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 transition-colors duration-300">
+    <div class="max-w-3xl mx-auto px-6 py-12">
+
+      <h1 class="text-2xl font-semibold tracking-tight" style="font-family: 'Cormorant Garamond', serif;">
+        Ganeswara Dande
+      </h1>
+
+      <Navbar />
+
+      <main class="mt-12">
+        <slot />
+      </main>
+
+      <Footer />
+
+    </div>
+
+  </body>
+</html>

@@ -1,17 +1,46 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <Fragment slot="title">Home</Fragment>
+
+  <section>
+    <h2 class="text-lg font-medium">
+      Backend Engineer · Infrastructure Builder · Open Source Contributor
+    </h2>
+
+    <p class="mt-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
+        Building scalable backend systems, developer tooling, and open-source projects.
+    </p>
+  </section>
+
+  <section class="mt-12">
+    <h3 class="font-medium">
+      Contact
+    </h3>
+
+    <div class="mt-4 flex flex-col gap-2 text-neutral-600 dark:text-neutral-400">
+      <a href="mailto:dandegani57@gmail.com"
+         class="underline underline-offset-4 hover:text-black dark:hover:text-white">
+        dandegani57@gmail.com
+      </a>
+
+      <a href="https://github.com/ganidande905" target="_blank"
+         class="underline underline-offset-4 hover:text-black dark:hover:text-white">
+        GitHub
+      </a>
+
+      <a href="https://www.linkedin.com/in/ganeswaradande" target="_blank"
+         class="underline underline-offset-4 hover:text-black dark:hover:text-white">
+        LinkedIn
+      </a>
+
+      <a href="https://drive.google.com/file/d/1jXlnRhJAPX8wJFMStaJZZyOl66y4Ylb3/view?usp=sharing"
+         class="underline underline-offset-4 hover:text-black dark:hover:text-white">
+        Resume
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
