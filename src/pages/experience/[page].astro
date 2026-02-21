@@ -1,0 +1,50 @@
+---
+import { experience } from '../../content/experience';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+
+
+const ITEMS_PER_PAGE = 5;
+
+export async function getStaticPaths() {
+  const ITEMS_PER_PAGE = 5;
+  const totalPages = Math.ceil(experience.length / ITEMS_PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() }
+  }));
+}
+
+const page = parseInt(Astro.params.page);
+const start = (page - 1) * ITEMS_PER_PAGE;
+const end = start + ITEMS_PER_PAGE;
+
+const paginatedItems = experience.slice(start, end);
+const totalPages = Math.ceil(experience.length / ITEMS_PER_PAGE);
+---
+
+<BaseLayout>
+  <h1 class="text-2xl font-semibold mb-8">Work Experience</h1>
+
+  {paginatedItems.map((exp) => (
+    <div class="mb-10">
+      <h2 class="text-lg font-medium">{exp.role}</h2>
+      <p class="text-sm opacity-70">{exp.organization}</p>
+      <p class="mt-2">{exp.description}</p>
+    </div>
+  ))}
+
+  <div class="flex justify-between mt-10">
+    {page > 1 && (
+      <a href={`/experience/${page - 1}`} class="underline">
+        Previous
+      </a>
+    )}
+
+    {page < totalPages && (
+      <a href={`/experience/${page + 1}`} class="underline">
+        Next
+      </a>
+    )}
+  </div>
+</BaseLayout>

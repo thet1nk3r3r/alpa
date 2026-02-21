@@ -1,0 +1,55 @@
+---
+import { skills } from '../../content/skills';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const ITEMS_PER_PAGE = 5;
+
+export async function getStaticPaths() {
+  const ITEMS_PER_PAGE = 5;
+  const totalPages = Math.ceil(skills.length / ITEMS_PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() }
+  }));
+}
+
+const page = parseInt(Astro.params.page);
+const start = (page - 1) * ITEMS_PER_PAGE;
+const end = start + ITEMS_PER_PAGE;
+
+const paginatedSkills = skills.slice(start, end);
+const totalPages = Math.ceil(skills.length / ITEMS_PER_PAGE);
+---
+
+<BaseLayout>
+  <h1 class="text-2xl font-semibold mb-10">Skills</h1>
+
+  <div class="space-y-10">
+    {paginatedSkills.map((group) => (
+      <div>
+        <h2 class="text-lg font-medium mb-4">{group.category}</h2>
+        <div class="flex flex-wrap gap-3">
+          {group.items.map((item) => (
+            <span class="px-3 py-1 border rounded text-sm">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="flex justify-between mt-12">
+    {page > 1 && (
+      <a href={`/skills/${page - 1}`} class="underline">
+        Previous
+      </a>
+    )}
+
+    {page < totalPages && (
+      <a href={`/skills/${page + 1}`} class="underline">
+        Next
+      </a>
+    )}
+  </div>
+</BaseLayout>

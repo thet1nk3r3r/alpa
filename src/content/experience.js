@@ -38,5 +38,35 @@ export const experience = [
     end: "Present",
     description:
       "Contribute to and maintain club-wide open-source initiatives. Mentor junior developers on backend architecture, deployment practices, and code quality while participating in long-term ecosystem projects."
-  }
+  },
+    {
+    role: "Junior Developer",
+    organization: "C360 Software",
+    location: "Hyderabad",
+    type: "Paid Internship",
+    start: "Jun 2024",
+    end: "Sep 2024",
+    description:
+      "Contributed to React Native and React.js applications across feature development, UI enhancements, and performance optimization. Worked within an iterative product lifecycle to deliver production-ready features across multiple releases."
+  },
+    {
+    role: "Junior Developer",
+    organization: "C360 Software",
+    location: "Hyderabad",
+    type: "Paid Internship",
+    start: "Jun 2024",
+    end: "Sep 2024",
+    description:
+      "Contributed to React Native and React.js applications across feature development, UI enhancements, and performance optimization. Worked within an iterative product lifecycle to deliver production-ready features across multiple releases."
+  },
+    {
+    role: "Junior Developer",
+    organization: "C360 Software",
+    location: "Hyderabad",
+    type: "Paid Internship",
+    start: "Jun 2024",
+    end: "Sep 2024",
+    description:
+      "Contributed to React Native and React.js applications across feature development, UI enhancements, and performance optimization. Worked within an iterative product lifecycle to deliver production-ready features across multiple releases."
+  },
 ];
