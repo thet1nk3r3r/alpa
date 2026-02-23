@@ -6,9 +6,7 @@ export const education = [
     start: "Jun 2023",
     end: "Present",
     gpa: "7.13 / 10",
-    description:
-      "Focused on backend systems, distributed architectures, database systems, and applied machine learning. Actively involved in university open-source initiatives and infrastructure-focused projects."
-  },
+  
   {
     degree: "Higher Secondary Education (Class XII)",
     institution: "FIITJEE Junior College",
