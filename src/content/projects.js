@@ -13,7 +13,7 @@ export const projects = [
     stack: "Docker, Traefik, GitHub Actions, Cloudflare, Linux",
     description:
       "Designed and maintained a self-hosted infrastructure platform to deploy and manage multiple backend services. Configured Traefik as a reverse proxy with automatic SSL provisioning, implemented CI/CD pipelines using GitHub Actions, and managed DNS and security configurations via Cloudflare. Focused on reproducible deployments and long-term maintainability.",
-    link: "#",
+    link: "https://github.com/ganidande095/nova",
     status: "Ongoing",
     date: "Jan 2026 – Present"
   },
