@@ -6,7 +6,7 @@ export const education = [
     start: "Jun 2023",
     end: "Present",
     gpa: "7.13 / 10",
-  
+  },
   {
     degree: "Higher Secondary Education (Class XII)",
     institution: "FIITJEE Junior College",

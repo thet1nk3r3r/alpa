@@ -13,7 +13,7 @@ export const projects = [
     stack: "Docker, Traefik, GitHub Actions, Cloudflare, Linux",
     description:
       "Designed and maintained a self-hosted infrastructure platform to deploy and manage multiple backend services. Configured Traefik as a reverse proxy with automatic SSL provisioning, implemented CI/CD pipelines using GitHub Actions, and managed DNS and security configurations via Cloudflare. Focused on reproducible deployments and long-term maintainability.",
-    link: "https://github.com/ganidande095/nova",
+    link: "https://github.com/thet1nk3r3r/nova",
     status: "Ongoing",
     date: "Jan 2026 – Present"
   },
@@ -52,7 +52,7 @@ export const projects = [
     stack: "Node.js, PostgreSQL",
     description:
       "A backend service for managing studio bookings, recording sessions, and equipment assignments. Designed database schemas and implemented API endpoints for session lifecycle management.",
-    link: "https://github.com/ganidande905/SoundStudio",
+    link: "https://github.com/thet1nk3r3r/SoundStudio",
     status: "Completed",
     date: "Jan 2025"
   },
@@ -61,7 +61,7 @@ export const projects = [
     stack: "C",
     description:
       "A role-based command-line tour booking system developed as an academic project. Implemented authentication logic, booking workflows, and secure terminal-based interactions for admins, agents, and customers.",
-    link: "https://github.com/ganidande905/TravelAgency",
+    link: "https://github.com/thet1nk3r3r/TravelAgency",
     status: "Completed",
     date: "Jan 2025"
   },
@@ -70,7 +70,7 @@ export const projects = [
     stack: "Flutter",
     description:
       "A hackathon-built mobile application for tracking and reducing personal carbon footprints. Developed core application flows and UI components. Backend services planned for future development.",
-    link: "https://github.com/ganidande905/CarbonX",
+    link: "https://github.com/thet1nk3r3r/CarbonX",
     status: "On Hold",
     date: "Dec 2024"
   }
