@@ -30,26 +30,28 @@ const end = start + ITEMS_PER_PAGE;
 
 const paginatedItems = contributions.slice(start, end);
 ---
-
 <BaseLayout>
   <Fragment slot="title">Open Source</Fragment>
 
   <Section title="Open Source Contributions">
-    {paginatedItems.map((item) => (
-      <ProjectCard
-        title={item.title}
-        description={item.description}
-        stack={item.stack}
-        date={item.date}
-        status={item.status}
-        link={item.link}
-      />
-    ))}
-    <div class="mt-12 flex gap-6 text-sm">
+    <div class="space-y-8">
+      {paginatedItems.map((item) => (
+        <ProjectCard
+          title={item.title}
+          description={item.description}
+          stack={item.stack}
+          date={item.date}
+          status={item.status}
+          link={item.link}
+        />
+      ))}
+    </div>
+
+    <nav class="mt-12 flex gap-6 text-sm">
       {currentPage > 1 && (
         <a
           href={`/open-source/${currentPage - 1}`}
-          class="underline hover:text-black dark:hover:text-white"
+          class="text-accent hover:opacity-80 transition-opacity"
         >
           ← Previous
         </a>
@@ -58,11 +60,11 @@ const paginatedItems = contributions.slice(start, end);
       {currentPage < totalPages && (
         <a
           href={`/open-source/${currentPage + 1}`}
-          class="underline hover:text-black dark:hover:text-white"
+          class="text-accent hover:opacity-80 transition-opacity"
         >
           Next →
         </a>
       )}
-    </div>
+    </nav>
   </Section>
 </BaseLayout>

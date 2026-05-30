@@ -1,44 +1,131 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import SplashCursor from "../components/Splash_Cursor.jsx";
 import "../styles/global.css";
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>GaniDande</title>
     <link rel="icon" href="/favicon.ico" />
-    <script is:inline>
-      const theme = localStorage.getItem("theme");
 
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
+
+<script is:inline>
+  const syncTheme = () => {
+    const savedTheme = localStorage.getItem("theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    document.documentElement.classList.toggle(
+      "dark",
+      savedTheme ? savedTheme === "dark" : systemDark
+    );
+  };
+
+  syncTheme();
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", syncTheme);
+
+  document.addEventListener("astro:page-load", syncTheme);
+</script>
   </head>
 
-  <body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 transition-colors duration-300">
-    <div class="max-w-3xl mx-auto px-6 py-12">
+  <body
+    class="transition-colors duration-300"
+    style="background-color: var(--bg); color: var(--text);"
+  >
+    <div transition:persist>
+      <SplashCursor
+        client:load
+        DENSITY_DISSIPATION={3.5}
+        VELOCITY_DISSIPATION={2}
+        PRESSURE={0.1}
+        CURL={3}
+        SPLAT_RADIUS={0.2}
+        SPLAT_FORCE={6000}
+        COLOR_UPDATE_SPEED={10}
+        SHADING={true}
+        RAINBOW_MODE={false}
+        COLOR="#ff3b3b"
+        TRANSPARENT={true}
+      />
+    </div>
 
-      <h1 class="text-2xl font-semibold tracking-tight" style="font-family: 'Cormorant Garamond', serif;">
-        Ganeswara Dande
-      </h1>
+    <div
+      id="cursor-dot"
+      class="cursor-dot"
+      transition:persist
+    ></div>
 
-      <Navbar />
+    <div class="max-w-3xl mx-auto px-6 py-12 relative z-[100]">
+      <header class="space-y-6">
+          <h1 class="signature text-3xl font-semibold tracking-tight">
+            Ganeswara Dande
+          </h1>
+        <Navbar />
+      </header>
 
       <main class="mt-12">
         <slot />
       </main>
 
       <Footer />
-
     </div>
 
+    <script is:inline>
+      const cursor = document.getElementById("cursor-dot");
+
+      if (window.matchMedia("(pointer: fine)").matches) {
+        let mouseX = 0;
+        let mouseY = 0;
+      
+        let currentX = 0;
+        let currentY = 0;
+      
+        let initialized = false;
+      
+        window.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        
+          if (!initialized) {
+            currentX = mouseX;
+            currentY = mouseY;
+          
+            cursor.style.left = mouseX + "px";
+            cursor.style.top = mouseY + "px";
+          
+            cursor.style.opacity = "1";
+          
+            initialized = true;
+          }
+        });
+      
+        document.addEventListener("astro:before-swap", () => {
+          cursor.style.opacity = "0";
+          initialized = false;
+        });
+      
+        const animateCursor = () => {
+          if (initialized) {
+            currentX += (mouseX - currentX) * 0.15;
+            currentY += (mouseY - currentY) * 0.15;
+          
+            cursor.style.left = currentX + "px";
+            cursor.style.top = currentY + "px";
+          }
+        
+          requestAnimationFrame(animateCursor);
+        };
+      
+        animateCursor();
+      }
+    </script>
   </body>
 </html>

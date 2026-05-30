@@ -1,5 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Cormorant+Garamond:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 @import "tailwindcss";
+
+@font-face {
+  font-family: "District Street";
+  src: url("/fonts/District_Street/District_Street.ttf") format("opentype");
+  font-display: swap;
+  font-weight: 900;
+}
+.text-muted {
+  color: var(--muted);
+}
+
+.text-subtle {
+  color: var(--border);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.border-theme {
+  border-color: var(--border);
+}
+:root {
+  --bg: #ffffff;
+  --surface: #f8fafc;
+
+  --text: #111827;
+  --muted: #6b7280;
+  --subtle: #9ca3af;
+  --heading: #1f2937;
+  --accent: #0891b2;
+  --accent-hover: #0e7490;
+
+  --border: #e5e7eb;
+  --signature: #ff3b3b;
+}
+
+.dark {
+  --bg: #11131a;
+  --surface: #121721;
+  --heading: #cbd5e1;
+  --signature: #ff3b3b;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --subtle: #64748b;
+
+  --accent: #3df2e0;
+  --accent-hover: #7ffcf0;
+
+  --border: #1f2937;
+}
 
 html {
   scroll-behavior: smooth;
@@ -7,13 +59,42 @@ html {
 }
 
 body {
-  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-}
-
-h1, h2, h3 {
-  font-family: "Space Grotesk", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .signature {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "District Street", "Cormorant Garamond", serif;
+  color: var(--signature);
+}
+* {
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+
+  background: rgba(255, 59, 59, 0.35);
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  z-index: 9999;
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 8px rgba(255, 59, 59, 0.12),
+    0 0 18px rgba(255, 59, 59, 0.08);
+
+  transition: opacity 0.15s ease;
+}
+@media (pointer: coarse) {
+  .cursor-dot {
+    display: none;
+  }
 }

@@ -7,7 +7,9 @@ import { education } from "../content/education";
   <Fragment slot="title">Education</Fragment>
 
   <section>
-    <h2 class="text-lg font-medium">Education</h2>
+    <h2 class="text-lg font-medium">
+      Education
+    </h2>
 
     <ul class="mt-10 space-y-12">
       {education.map((item) => (
@@ -16,7 +18,7 @@ import { education } from "../content/education";
             {item.degree}
           </h3>
 
-          <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+          <p class="mt-1 text-sm text-muted">
             {item.institution} · {item.location}
             {(item.start || item.year) && " · "}
             {item.start && item.end && `${item.start} – ${item.end}`}
@@ -24,15 +26,9 @@ import { education } from "../content/education";
           </p>
 
           {(item.gpa || item.score) && (
-            <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+            <p class="mt-1 text-sm text-muted">
               {item.gpa && `GPA: ${item.gpa}`}
               {item.score && `Score: ${item.score}`}
-            </p>
-          )}
-
-          {item.description && (
-            <p class="mt-3 text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              {item.description}
             </p>
           )}
         </li>

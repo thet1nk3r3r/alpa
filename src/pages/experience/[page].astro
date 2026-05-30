@@ -22,29 +22,62 @@ const end = start + ITEMS_PER_PAGE;
 const paginatedItems = experience.slice(start, end);
 const totalPages = Math.ceil(experience.length / ITEMS_PER_PAGE);
 ---
-
 <BaseLayout>
-  <h1 class="text-2xl font-semibold mb-8">Work Experience</h1>
+  <section>
+    <h1 class="text-2xl font-semibold mb-10">
+      Work Experience
+    </h1>
 
-  {paginatedItems.map((exp) => (
-    <div class="mb-10">
-      <h2 class="text-lg font-medium">{exp.role}</h2>
-      <p class="text-sm opacity-70">{exp.organization}</p>
-      <p class="mt-2">{exp.description}</p>
+    <div class="space-y-10">
+      {paginatedItems.map((exp) => (
+        <article class="border-l-2 pl-5 border-theme">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+            <div>
+              <h2 class="text-lg font-medium">
+                {exp.role}
+              </h2>
+
+              <p class="text-sm text-muted mt-1">
+                {exp.organization}
+              </p>
+
+              <p class="text-xs text-muted mt-1">
+                {exp.location} · {exp.type}
+              </p>
+            </div>
+
+            <span class="text-sm text-muted whitespace-nowrap">
+              {exp.start} — {exp.end}
+            </span>
+          </div>
+
+          <p class="mt-3 leading-relaxed text-muted">
+            {exp.description}
+          </p>
+        </article>
+      ))}
     </div>
-  ))}
 
-  <div class="flex justify-between mt-10">
-    {page > 1 && (
-      <a href={`/experience/${page - 1}`} class="underline">
-        Previous
-      </a>
-    )}
+    <nav class="flex justify-between mt-12">
+      {page > 1 ? (
+        <a
+          href={`/experience/${page - 1}`}
+          class="text-accent hover:opacity-80 transition-opacity"
+        >
+          ← Previous
+        </a>
+      ) : (
+        <div />
+      )}
 
-    {page < totalPages && (
-      <a href={`/experience/${page + 1}`} class="underline">
-        Next
-      </a>
-    )}
-  </div>
+      {page < totalPages && (
+        <a
+          href={`/experience/${page + 1}`}
+          class="text-accent hover:opacity-80 transition-opacity"
+        >
+          Next →
+        </a>
+      )}
+    </nav>
+  </section>
 </BaseLayout>

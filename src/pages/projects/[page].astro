@@ -34,22 +34,24 @@ const paginatedProjects = projects.slice(start, end);
   <Fragment slot="title">Projects</Fragment>
 
   <Section title="Projects">
-    {paginatedProjects.map((project) => (
-      <ProjectCard
-        title={project.title}
-        description={project.description}
-        stack={project.stack}
-        date={project.date}
-        status={project.status}
-        link={project.link}
-      />
-    ))}
+    <div class="space-y-8">
+      {paginatedProjects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          stack={project.stack}
+          date={project.date}
+          status={project.status}
+          link={project.link}
+        />
+      ))}
+    </div>
 
-    <div class="mt-12 flex gap-6 text-sm">
+    <nav class="mt-12 flex gap-6 text-sm">
       {currentPage > 1 && (
         <a
           href={`/projects/${currentPage - 1}`}
-          class="underline hover:text-black dark:hover:text-white"
+          class="text-accent hover:opacity-80 transition-opacity"
         >
           ← Previous
         </a>
@@ -58,11 +60,11 @@ const paginatedProjects = projects.slice(start, end);
       {currentPage < totalPages && (
         <a
           href={`/projects/${currentPage + 1}`}
-          class="underline hover:text-black dark:hover:text-white"
+          class="text-accent hover:opacity-80 transition-opacity"
         >
           Next →
         </a>
       )}
-    </div>
+    </nav>
   </Section>
 </BaseLayout>
