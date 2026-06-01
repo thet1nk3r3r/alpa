@@ -40,28 +40,28 @@ import "../styles/global.css";
     class="transition-colors duration-300"
     style="background-color: var(--bg); color: var(--text);"
   >
-      <!-- <div transition:persist>
-        <SplashCursor
-          client:load
-          DENSITY_DISSIPATION={3.5}
-          VELOCITY_DISSIPATION={2}
-          PRESSURE={0.1}
-          CURL={3}
-          SPLAT_RADIUS={0.2}
-          SPLAT_FORCE={6000}
-          COLOR_UPDATE_SPEED={10}
-          SHADING={true}
-          RAINBOW_MODE={false}
-          COLOR="#ff3b3b"
-          TRANSPARENT={true}
-        />
-      </div>
+    <div transition:persist>
+      <SplashCursor
+        client:load
+        DENSITY_DISSIPATION={3.5}
+        VELOCITY_DISSIPATION={2}
+        PRESSURE={0.1}
+        CURL={3}
+        SPLAT_RADIUS={0.2}
+        SPLAT_FORCE={6000}
+        COLOR_UPDATE_SPEED={10}
+        SHADING={true}
+        RAINBOW_MODE={false}
+        COLOR="#ff3b3b"
+        TRANSPARENT={true}
+      />
+    </div>
 
-      <div
-        id="cursor-dot"
-        class="cursor-dot"
-        transition:persist
-      ></div> -->
+    <div
+      id="cursor-dot"
+      class="cursor-dot"
+      transition:persist
+    ></div>
 
     <div class="max-w-3xl mx-auto px-6 py-12 relative z-[100]">
       <header class="space-y-6">
@@ -78,7 +78,7 @@ import "../styles/global.css";
       <Footer />
     </div>
 
-    <!-- <script is:inline>
+    <script is:inline>
       const cursor = document.getElementById("cursor-dot");
 
       if (window.matchMedia("(pointer: fine)").matches) {
@@ -126,6 +126,6 @@ import "../styles/global.css";
       
         animateCursor();
       }
-    </script> -->
+    </script>
   </body>
 </html>
