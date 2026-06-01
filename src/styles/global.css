@@ -68,7 +68,7 @@ body {
   font-family: "District Street", "Cormorant Garamond", serif;
   color: var(--signature);
 }
-* {
+/* * {
   cursor: none;
 }
 
@@ -97,4 +97,4 @@ body {
   .cursor-dot {
     display: none;
   }
-}
+} */
