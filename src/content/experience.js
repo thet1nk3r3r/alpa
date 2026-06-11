@@ -1,16 +1,26 @@
 export const experience = [
   {
     role: "Developer Intern",
+    organization: "Zobaze",
+    location: "Hyderabad",
+    type: "Paid Internship",
+    start: "June 2026",
+    end: "Present",
+    description:
+      "Gaining hands-on experience in agentic coding and AI-assisted software development, focusing on optimizing engineering workflows, automating repetitive tasks, and improving developer productivity through modern tooling and automation."
+  },
+  {
+    role: "Developer Intern",
     organization: "CIR – Amrita Vishwa Vidyapeetham",
     location: "Amritapuri",
     type: "Internship",
     start: "Jan 2026",
-    end: "Present",
+    end: "April 2026",
     description:
       "Building a managerial dashboard system to streamline faculty task assignment and operational tracking. Responsible for backend workflows, role-based access control, and designing scalable service logic for academic management processes."
   },
   {
-    role: "Maintainer & Backend Lead",
+    role: "Maintainer, Backend & Mobile Lead",
     organization: "amMentor Ecosystem – amFOSS",
     location: "Amritapuri",
     type: "Leadership / Engineering",
