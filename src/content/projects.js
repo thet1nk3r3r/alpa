@@ -33,7 +33,7 @@ export const projects = [
     stack: "Python, TensorFlow, VGG16",
     description:
       "A deep learning-based medical imaging project that uses transfer learning with VGG16 to classify brain MRI scans for tumor detection. Focused on model accuracy, preprocessing pipelines, and evaluation metrics to improve diagnostic reliability.",
-    link: "#",
+    link: "https://colab.research.google.com/drive/1Xq0XZbByVI29kcvscWui0UfYYfUvRxGj?usp=sharing",
     status: "Completed",
     date: "Dec 2025"
   },
